@@ -457,12 +457,78 @@
     vertical-align: middle;
   }
 
+  /* VALUE COLOURS (from the Our Values mailer) */
+  .v-pride { --v: #0A2A4A; }
+  .v-passion { --v: #1565C0; }
+  .v-professionalism { --v: #1499A8; }
+  .v-people { --v: #5DA130; }
+  .v-purpose { --v: #E2691F; }
+
+  /* VALUES BAND */
+  .values-band {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+  .value-cell {
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--v);
+    border-radius: 8px;
+    padding: 11px 12px;
+    background: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .value-name {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--v);
+    margin-bottom: 5px;
+  }
+  .value-desc { font-size: 11px; color: var(--text-mid); line-height: 1.4; }
+
+  /* SECTION VALUE PILL */
+  .value-pill {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: white;
+    background: var(--v);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* CLOSING VALUES BAND */
+  .closing-band {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    border-radius: 8px;
+    padding: 14px 20px;
+    text-align: center;
+    margin-bottom: 4px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .closing-band p { font-size: 12px; color: rgba(255,255,255,0.85); font-weight: 500; }
+  .closing-band p span { color: var(--cyan); font-weight: 700; letter-spacing: 0.04em; }
+
+  @media print {
+    .value-cell { break-inside: avoid; page-break-inside: avoid; }
+    .values-band { break-inside: auto; }
+    .closing-band { break-inside: avoid; }
+  }
+
   @media (max-width: 820px) {
     .profile-grid { grid-template-columns: 1fr 1fr; }
     .payoff { grid-template-columns: 1fr; }
+    .values-band { grid-template-columns: 1fr 1fr 1fr; }
   }
   @media (max-width: 560px) {
     .profile-grid, .do-dont { grid-template-columns: 1fr; }
+    .values-band { grid-template-columns: 1fr 1fr; }
     .header-top { flex-direction: column; align-items: flex-start; }
     .header-title { text-align: left; }
     .body { padding: 22px; }
@@ -499,7 +565,7 @@
   <div class="body">
 
     <!-- CORE MINDSET -->
-    <div class="section-label">The Core Mindset</div>
+    <div class="section-label">The Core Mindset <span class="value-pill v-purpose">Purpose</span></div>
     <div class="formula-box">
       <div class="formula-icon">&#127919;</div>
       <div class="formula-text">
@@ -508,8 +574,33 @@
       </div>
     </div>
 
+    <!-- OUR VALUES, LIVE ON CHAT -->
+    <div class="section-label">Our Values, Live on Chat</div>
+    <div class="values-band">
+      <div class="value-cell v-passion">
+        <div class="value-name">PASSION</div>
+        <div class="value-desc">Bring the spark. Keep the dream alive and let it carry the chat.</div>
+      </div>
+      <div class="value-cell v-people">
+        <div class="value-name">PEOPLE</div>
+        <div class="value-desc">Read the person first. Personalise, never interrogate.</div>
+      </div>
+      <div class="value-cell v-professionalism">
+        <div class="value-name">PROFESSIONALISM</div>
+        <div class="value-desc">Honest indications, no invented prices, every commitment kept.</div>
+      </div>
+      <div class="value-cell v-pride">
+        <div class="value-name">PRIDE</div>
+        <div class="value-desc">Craft a proper quote and honour your follow-up. How we do it matters.</div>
+      </div>
+      <div class="value-cell v-purpose">
+        <div class="value-name">PURPOSE</div>
+        <div class="value-desc">Never a dead-end. Build the relationship and earn the return.</div>
+      </div>
+    </div>
+
     <!-- CHALLENGE 1: THE DATE TRAP -->
-    <div class="section-label">Challenge 1 &nbsp;&middot;&nbsp; The Date Trap</div>
+    <div class="section-label">Challenge 1 &nbsp;&middot;&nbsp; The Date Trap <span class="value-pill v-passion">Passion</span></div>
     <div class="formula-box">
       <div class="formula-icon">&#128197;</div>
       <div class="formula-text">
@@ -612,7 +703,7 @@
     </div>
 
     <!-- CHALLENGE 2: READ THE TRAVELLER -->
-    <div class="section-label">Challenge 2 &nbsp;&middot;&nbsp; Read the Traveller</div>
+    <div class="section-label">Challenge 2 &nbsp;&middot;&nbsp; Read the Traveller <span class="value-pill v-people">People</span></div>
     <div class="formula-box">
       <div class="formula-icon">&#129504;</div>
       <div class="formula-text">
@@ -745,7 +836,7 @@
     </div>
 
     <!-- CHALLENGE 3: NO RATES YET -->
-    <div class="section-label">Challenge 3 &nbsp;&middot;&nbsp; No Rates Out Yet</div>
+    <div class="section-label">Challenge 3 &nbsp;&middot;&nbsp; No Rates Out Yet <span class="value-pill v-professionalism">Professionalism</span></div>
     <div class="formula-box">
       <div class="formula-icon">&#9203;</div>
       <div class="formula-text">
@@ -848,7 +939,7 @@
     </div>
 
     <!-- CHALLENGE 4: BUYING TIME TO QUOTE -->
-    <div class="section-label">Challenge 4 &nbsp;&middot;&nbsp; Buying Time to Quote</div>
+    <div class="section-label">Challenge 4 &nbsp;&middot;&nbsp; Buying Time to Quote <span class="value-pill v-pride">Pride</span></div>
     <div class="formula-box">
       <div class="formula-icon">&#9201;&#65039;</div>
       <div class="formula-text">
@@ -1007,6 +1098,11 @@
     <div class="reminder">
       <span class="reminder-icon">&#128221;</span>
       <p><strong>The one rule:</strong> whatever the question, never let the chat dead-end. If you cannot answer fully right now, capture the customer and own the next step with a date you will actually hit. Note what you learned so the follow-up feels like a continuation, not a restart. A held lead is a future booking; an abandoned chat is a competitor's.</p>
+    </div>
+
+    <!-- CLOSING VALUES BAND -->
+    <div class="closing-band">
+      <p>Every conversation is a chance to live our values, <span>PRIDE &middot; PASSION &middot; PROFESSIONALISM &middot; PEOPLE &middot; PURPOSE</span></p>
     </div>
 
   </div>
